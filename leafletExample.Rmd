@@ -1,0 +1,33 @@
+---
+title: "Leaflet Example"
+author: "Mykyta Zharov"
+date: "12/2/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Owerview
+
+In this project I would like to show how the leaflet package for R can be used to show an interective map with markers, visualising data. 
+
+Let us start by loading the leaflet package.
+
+```{r }
+library(leaflet)
+```
+
+I would like to visualise the city of Aachen and create a marker for RWTH Aachen University Main Building.
+
+```{r }
+my_map <-leaflet() %>%
+        addTiles() %>%
+        setView(lng = 6.083611, lat = 50.775555, zoom = 15) %>%
+        addMarkers(popup = "RWTH Aachen University Main Building", 
+                   lng = 6.077686, 
+                   lat = 50.777923, label = "RWTH Aachen University")
+
+my_map
+```
